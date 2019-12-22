@@ -11,6 +11,7 @@ public class Voter {
             @JsonProperty(value = "SSN", required = true) int SSN,
                     @JsonProperty(value = "vote", required = true) int vote) {
         this.SSN = SSN;
+        this.vote = vote;
     }
     public Voter setVote(int vote) {
         this.vote = vote;
