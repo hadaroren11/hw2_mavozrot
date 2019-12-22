@@ -1,7 +1,9 @@
 package app.controllers;
-import app.models.Employee;
+import app.models.Voter;
 import org.springframework.hateoas.Resource;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,12 +11,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static org.springframework.hateoas.core.DummyInvocationUtils.methodOn;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 @RestController
-public class EmployeeController {
-    private HashMap<Integer, Employee> employees = new HashMap<>();
-    private AtomicInteger eid = new AtomicInteger(0);
-    EmployeeController() {
-        employees.put(eid.getAndIncrement(), new Employee("Sheldon", "Theoretical physicist"));
-        employees.put(eid.getAndIncrement(), new Employee("Howard", "Engineer"));
+public class VoterController {
+    private HashMap<Integer, Voter> voters = new HashMap<>();
+    VoterController() {
     }
     @GetMapping("/employees")
     List<Employee> all() {
